@@ -14,7 +14,8 @@ const FrequencyPicker = () => {
   return (
     <Container>
       <Text>
-        Combien de rappels souhaitez-vous recevoir par jour pour boire de l'eau ?
+        Combien de rappels souhaitez-vous recevoir par jour pour boire de l'eau
+        ?
       </Text>
       <TextInput
         value={numReminders}
@@ -22,12 +23,12 @@ const FrequencyPicker = () => {
         keyboardType="numeric"
         placeholder="Nombre de rappels"
       />
-      <Picker
+      <StyledPicker
         selectedValue={frequencyUnit}
         onValueChange={value => setFrequencyUnit(value)}>
-        <Picker.Item label="Heures" value="hour" />
-        <Picker.Item label="Minutes" value="minute" />
-      </Picker>
+        <StyledPicker.Item label="Heures" value="hour" />
+        <StyledPicker.Item label="Minutes" value="minute" />
+      </StyledPicker>
     </Container>
   );
 };
@@ -36,6 +37,14 @@ const Container = styled.View`
   flex: 1;
   align-items: center;
   justify-content: center;
+`;
+
+const StyledPicker = styled(Picker)`
+  width: 200px;
+  height: 50px;
+  background-color: white;
+  border: 1px solid black;
+  border-radius: 5px;
 `;
 
 export default FrequencyPicker;
