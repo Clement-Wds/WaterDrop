@@ -1,7 +1,10 @@
 import React from 'react';
 import styled from 'styled-components/native';
-import FrequencyPicker from '../components/FrequencyPicker';
 import Notifee from "@notifee/react-native";
+import AsyncStorage from '@react-native-async-storage/async-storage';
+
+import FrequencyPicker from '../components/FrequencyPicker';
+
 
 const Home = () => {
 
@@ -18,6 +21,10 @@ const Home = () => {
         channelId,
       },
     });
+
+    // Stockage de l'horodatage du clic
+    const timestamp = new Date().getTime().toString();
+    await AsyncStorage.setItem(timestamp, 'vous avez bu à cette heure');
   };
 
   return (
