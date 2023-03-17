@@ -12,8 +12,8 @@ const Home = () => {
     });
     
     await Notifee.displayNotification({
-      title: 'WaterDrop - Notification',
-      body: "N'oubliez pas de boire de l'eau régulièrement !",
+      title: 'WaterDrop - Félicitations',
+      body: "Vous avez bu de l'eau et votre corps vous remercie !",
       android: {
         channelId,
       },
@@ -27,7 +27,7 @@ const Home = () => {
         santé !
       </Title>
       <Button onPress={handlePress}>
-        <ButtonText>Afficher une notification</ButtonText>
+        <ButtonText>J'ai bu de l'eau</ButtonText>
       </Button>
       <FrequencyPicker />
     </Container>
