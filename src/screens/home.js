@@ -36,6 +36,9 @@ const Home = () => {
       <Button onPress={handlePress}>
         <ButtonText>J'ai bu de l'eau</ButtonText>
       </Button>
+      <Button onPress={() => navigation.navigate('History')}>
+        <ButtonText>Voir l'historique</ButtonText>
+      </Button>
       <FrequencyPicker />
     </Container>
   );
