@@ -2,11 +2,14 @@ import React from 'react';
 import styled from 'styled-components/native';
 import Notifee from "@notifee/react-native";
 import AsyncStorage from '@react-native-async-storage/async-storage';
+import { useNavigation } from '@react-navigation/native';
 
 import FrequencyPicker from '../components/FrequencyPicker';
 
 
 const Home = () => {
+
+  const navigation = useNavigation();
 
   const handlePress = async () => {
     const channelId = await Notifee.createChannel({
