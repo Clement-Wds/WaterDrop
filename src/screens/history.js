@@ -7,17 +7,16 @@ const History = () => {
     const [history, setHistory] = useState([]);
 
     useEffect(() => {
-        const loadHistory = async () => {
-            try {
-                const historyData = await AsyncStorage.getItem('@waterdrop:history');
-                if(historyData !== null){
-                    setHistory(JSON.parse(historyData));
-                }
-            } catch (e) {
-                console.log("Erreur lors du chargement de l'historique", e);
-            }
+      const getHistory = async () => {
+        try {
+          const keys = await AsyncStorage.getAllKeys();
+          const items = await AsyncStorage.multiGet(keys);
+          setHistory(items);
+        } catch (error) {
+          console.log(error);
         }
-        loadHistory();
+      };
+      getHistory();
     }, []);
 
     const renderHistoryItem = ({item}) => (
